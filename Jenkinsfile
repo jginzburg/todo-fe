@@ -39,7 +39,7 @@ pipeline {
             }
             steps {
                 script {
-                    // Arbitrary Groovy Script executions can do in script tags
+                    // an Arbitrary Groovy Script executions can do in script tags
                     env.PROJECT_NAMESPACE = "jero-test"
                     env.NODE_ENV = "test"
                     env.E2E_TEST_ROUTE = "oc get route/${APP_NAME} --template='{{.spec.host}}' -n ${PROJECT_NAMESPACE}".execute().text.minus("'").minus("'")

@@ -16,7 +16,7 @@ pipeline {
         GIT_SSL_NO_VERIFY = true
         GIT_CREDENTIALS = credentials('jenkins-git-creds')
         GITLAB_DOMAIN = "gitlab.apps.labsla1.prod.nextcle.com"
-        GITLAB_PROJECT = "todolist-fe"
+        GITLAB_PROJECT = "lab8"
     }
 
     // The options directive is for configuration that applies to the whole job.

@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         // GLobal Vars
-        PIPELINES_NAMESPACE = "<YOUR_NAME>-ci-cd"
+        PIPELINES_NAMESPACE = "jero-ci-cd"
         APP_NAME = "todolist-fe"
 
         JENKINS_TAG = "${JOB_NAME}.${BUILD_NUMBER}".replace("/", "-")
@@ -15,8 +15,8 @@ pipeline {
 
         GIT_SSL_NO_VERIFY = true
         GIT_CREDENTIALS = credentials('jenkins-git-creds')
-        GITLAB_DOMAIN = "gitlab.apps.lader.rht-labs.com"
-        GITLAB_PROJECT = "<GIT_USERNAME>"
+        GITLAB_DOMAIN = "gitlab.apps.labsla1.prod.nextcle.com"
+        GITLAB_PROJECT = "todolist-fe"
     }
 
     // The options directive is for configuration that applies to the whole job.
@@ -58,7 +58,7 @@ pipeline {
             steps {
                 script {
                     // Arbitrary Groovy Script executions can do in script tags
-                    env.PROJECT_NAMESPACE = "<YOUR_NAME>-dev"
+                    env.PROJECT_NAMESPACE = "jero-dev"
                     env.NODE_ENV = "dev"
                     env.E2E_TEST_ROUTE = "oc get route/${APP_NAME} --template='{{.spec.host}}' -n ${PROJECT_NAMESPACE}".execute().text.minus("'").minus("'")
                 }
